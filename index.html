@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0E141A">
+<title>Dagens økt</title>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Dagens økt">
+<style>
+  * { box-sizing: border-box; }
+  html,body { margin:0; }
+  body{
+    min-height:100vh; background:#0E141A; color:#E8EDF2;
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    padding:0 0 40px; -webkit-tap-highlight-color:transparent;
+  }
+  .mono{ font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+  .wrap{ max-width:460px; margin:0 auto; padding:max(20px,env(safe-area-inset-top)) 16px 0; }
+  .topbar{ display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
+  .title{ font-size:19px; font-weight:700; letter-spacing:-0.2px; }
+  .sub{ font-size:12px; color:#6c7b89; }
+  .nav{ display:flex; gap:6px; }
+  button{ font:inherit; cursor:pointer; color:#C6D2DC; }
+  .nb{ min-width:34px; height:34px; padding:0 10px; background:#141c24;
+       border:1px solid #283642; border-radius:9px; font-size:15px; font-weight:600; }
+  .nb.solid{ background:#23303b; font-family:ui-monospace,monospace; }
+  .nb:active{ background:#1c2730; }
+  .banner{ background:#16202a; border:1px solid #243240; border-radius:12px;
+           padding:14px 16px; font-size:13.5px; color:#9fb0bd; margin-bottom:14px; }
+
+  .hero{ border-radius:18px; overflow:hidden;
+         background:linear-gradient(180deg,#1a242e 0%,#141c24 100%);
+         box-shadow:0 0 0 1px #0b1117; }
+  .hero .top{ height:4px; }
+  .hero .body{ padding:18px 18px 20px; }
+  .hero .meta{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:14px; gap:10px; }
+  .eyebrow{ font-size:12px; letter-spacing:1.5px; color:#7d8c9a; text-transform:uppercase; }
+  .fase{ font-size:10.5px; letter-spacing:.5px; color:#9aa8b5; border:1px solid #2a3742;
+         border-radius:6px; padding:2px 7px; text-transform:uppercase; }
+  .dur{ margin-top:16px; font-size:46px; font-weight:700; line-height:1; color:#EDF2F6; }
+  .okt{ margin-top:14px; font-size:17px; line-height:1.45; color:#DCE4EB; font-weight:500; }
+  .kom{ margin-top:12px; font-size:13.5px; color:#8DA0AE; padding-left:10px; }
+
+  .chip{ display:inline-flex; align-items:center; gap:6px; border-radius:999px;
+         font-weight:600; letter-spacing:.3px; text-transform:uppercase; white-space:nowrap;
+         font-family:ui-monospace,monospace; }
+  .chip .dot{ border-radius:999px; }
+  .chip.lg{ padding:4px 12px; font-size:13px; }
+  .chip.lg .dot{ width:7px; height:7px; }
+  .chip.sm{ padding:2px 9px; font-size:11px; }
+  .chip.sm .dot{ width:6px; height:6px; }
+
+  .next{ margin-top:12px; border-radius:14px; padding:14px 16px;
+         background:#121922; border:1px solid #1f2a34; }
+  .next .lbl{ font-size:11px; letter-spacing:1.2px; color:#6c7b89; text-transform:uppercase; margin-bottom:8px; }
+  .next .row{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .next .ndur{ font-size:14px; color:#B9C5CF; font-weight:600; }
+  .next .nokt{ margin-top:8px; font-size:14px; color:#AEBAC4; line-height:1.4; }
+
+  .week{ margin-top:18px; }
+  .week .wlbl{ font-size:11px; letter-spacing:1.2px; color:#6c7b89; text-transform:uppercase; margin-bottom:8px; padding-left:2px; }
+  .day{ display:grid; grid-template-columns:44px 10px 1fr auto; align-items:center; gap:10px;
+        text-align:left; border-radius:10px; padding:9px 11px; width:100%; margin-bottom:4px;
+        background:transparent; border:1px solid #161f27; color:inherit; }
+  .day .dg{ font-size:11px; color:#73828f; text-transform:uppercase; }
+  .day .dot{ width:8px; height:8px; border-radius:999px; }
+  .day .dk{ font-size:13px; color:#9aa8b4; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .day .dd{ font-size:11.5px; color:#6f7e8b; }
+  .day.active .dg{ color:#cdd8e1; } .day.active .dk{ color:#E2E9EF; }
+
+  .foot{ margin-top:22px; padding-top:14px; border-top:1px solid #1a242d;
+         font-size:11.5px; color:#586773; line-height:1.7; display:flex; justify-content:space-between; align-items:center; gap:10px; }
+  .foot .rf{ background:#141c24; border:1px solid #283642; border-radius:8px; padding:5px 10px; color:#9fb0bd; font-size:11.5px; }
+  @media (prefers-reduced-motion: no-preference){ .day,.nb,.rf{ transition:background .12s ease; } }
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+
+<script>
+const BOOT = [{"date": "2026-05-25", "week": "w22 2026", "dag": "Mandag", "hoved": "Race", "sek": null, "okt": "Race - Fana 3D 4/4", "min": null, "kom": null}, {"date": "2026-05-26", "week": "w22 2026", "dag": "Tirsdag", "hoved": "Deload", "sek": "Recovery", "okt": "Recovery 60 min", "min": null, "kom": null}, {"date": "2026-05-27", "week": "w22 2026", "dag": "Onsdag", "hoved": "Deload", "sek": "Recovery", "okt": "Recovery 60 min", "min": null, "kom": null}, {"date": "2026-05-28", "week": "w22 2026", "dag": "Torsdag", "hoved": "Deload", "sek": "Endurance", "okt": "Endurance 2h m 3x12s openers", "min": null, "kom": null}, {"date": "2026-05-29", "week": "w22 2026", "dag": "Fredag", "hoved": "Taper", "sek": "Recovery", "okt": "Pre-race 45 min Z1 + 3x12s openers + 1x3 min @ race-pace", "min": null, "kom": null}, {"date": "2026-05-30", "week": "w22 2026", "dag": "Lørdag", "hoved": "Race", "sek": null, "okt": "Race - Kristiansand Hovden (210 km)", "min": null, "kom": "Sykkler tilbake igjen etter rittet (så totalt 420km)"}, {"date": "2026-05-31", "week": "w22 2026", "dag": "Søndag", "hoved": "Deload", "sek": "Recovery", "okt": "Recovery 1:00 Z1", "min": null, "kom": null}, {"date": "2026-06-01", "week": "w23 2026", "dag": "Mandag", "hoved": "Deload", "sek": "Recovery", "okt": "Recovery 1:00 Z1", "min": null, "kom": null}, {"date": "2026-06-02", "week": "w23 2026", "dag": "Tirsdag", "hoved": "Build", "sek": "Endurance", "okt": "Endurance 2h", "min": null, "kom": null}, {"date": "2026-06-03", "week": "w23 2026", "dag": "Onsdag", "hoved": "Build", "sek": "VO2", "okt": "Klassisk | VO2 5x5 + Endurance (ca 370w)", "min": null, "kom": null}, {"date": "2026-06-04", "week": "w23 2026", "dag": "Torsdag", "hoved": "Build", "sek": "THP", "okt": "THP 3x15 min @ 305-315W m 6 min Z1-pause", "min": null, "kom": null}, {"date": "2026-06-05", "week": "w23 2026", "dag": "Fredag", "hoved": "Deload", "sek": "Endurance", "okt": "Endurance 90min", "min": null, "kom": "Dyreparken"}, {"date": "2026-06-06", "week": "w23 2026", "dag": "Lørdag", "hoved": "Deload", "sek": "Recovery", "okt": "Day off", "min": null, "kom": "Dyreparken"}, {"date": "2026-06-07", "week": "w23 2026", "dag": "Søndag", "hoved": "Deload", "sek": "Recovery", "okt": "Day off", "min": null, "kom": "Dyreparken"}, {"date": "2026-06-08", "week": "w24 2026", "dag": "Mandag", "hoved": "Build", "sek": "Endurance", "okt": "Endurance 2h", "min": null, "kom": null}, {"date": "2026-06-09", "week": "w24 2026", "dag": "Tirsdag", "hoved": "Build", "sek": "VO2", "okt": "5x7 Økt 1 — Klatreprofil-interval (spesifikk lik NM bakken)", "min": null, "kom": null}, {"date": "2026-06-10", "week": "w24 2026", "dag": "Onsdag", "hoved": "Build", "sek": "SS", "okt": "3h Endurance med 5x7 min SS (300w)", "min": null, "kom": "Gateritt om det er hensiktsmessig"}, {"date": "2026-06-11", "week": "w24 2026", "dag": "Torsdag", "hoved": "Build", "sek": "THP", "okt": "THP 30-20-10-20-30", "min": null, "kom": null}, {"date": "2026-06-12", "week": "w24 2026", "dag": "Fredag", "hoved": "Deload", "sek": "Endurance", "okt": "Endurance 90min", "min": null, "kom": "Maarud gård"}, {"date": "2026-06-13", "week": "w24 2026", "dag": "Lørdag", "hoved": "Deload", "sek": "Recovery", "okt": "Day off", "min": null, "kom": "Maarud gård"}, {"date": "2026-06-14", "week": "w24 2026", "dag": "Søndag", "hoved": "Deload", "sek": "Recovery", "okt": "Day off", "min": null, "kom": "Maarud gård"}, {"date": "2026-06-15", "week": "w25 2026", "dag": "Mandag", "hoved": "Build", "sek": "Endurance", "okt": "Endurance 2h", "min": null, "kom": null}, {"date": "2026-06-16", "week": "w25 2026", "dag": "Tirsdag", "hoved": "Build", "sek": "VO2", "okt": "5x7 Økt 1 — Klatreprofil-interval (spesifikk lik NM bakken)", "min": null, "kom": null}, {"date": "2026-06-17", "week": "w25 2026", "dag": "Onsdag", "hoved": "Build", "sek": "SS", "okt": "3h Endurance med 5x7 min SS (300w)", "min": null, "kom": null}, {"date": "2026-06-18", "week": "w25 2026", "dag": "Torsdag", "hoved": "Build", "sek": "Endurance", "okt": "Endurance 2h", "min": null, "kom": null}, {"date": "2026-06-19", "week": "w25 2026", "dag": "Fredag", "hoved": "Build", "sek": "SS", "okt": "Endurance 3h Z2 m 2x15 min SS @ 295-305W.", "min": null, "kom": null}, {"date": "2026-06-20", "week": "w25 2026", "dag": "Lørdag", "hoved": "Build", "sek": "Endurance", "okt": "Endurance 2h Z2 (eller off om Sommerfest krever det)", "min": null, "kom": "Dorota Sommerfest Kongsberg - vet ikke hva det betyr for meg"}, {"date": "2026-06-21", "week": "w25 2026", "dag": "Søndag", "hoved": "Deload", "sek": "Endurance", "okt": "Endurance 1:30 Z2", "min": null, "kom": null}, {"date": "2026-06-22", "week": "w26 2026", "dag": "Mandag", "hoved": "Taper", "sek": "Recovery", "okt": "Recovery 1:00 Z1", "min": null, "kom": null}, {"date": "2026-06-23", "week": "w26 2026", "dag": "Tirsdag", "hoved": "Taper", "sek": "VO2", "okt": "VO2 4x3 min @ 395-410W m 4 min pause + 1:00 Z2 ramme", "min": null, "kom": null}, {"date": "2026-06-24", "week": "w26 2026", "dag": "Onsdag", "hoved": "Taper", "sek": "Endurance", "okt": "Endurance 1:30", "min": null, "kom": null}, {"date": "2026-06-25", "week": "w26 2026", "dag": "Torsdag", "hoved": "Taper", "sek": "Endurance", "okt": "Endurance 1:30 Z2 + 3x12s openers", "min": null, "kom": null}, {"date": "2026-06-26", "week": "w26 2026", "dag": "Fredag", "hoved": "Taper", "sek": null, "okt": "Før race 1:30 - 3×2 min @340–360W, P 3min + 3 x 15 sek spurt max", "min": null, "kom": null}, {"date": "2026-06-27", "week": "w26 2026", "dag": "Lørdag", "hoved": "Race", "sek": "Race", "okt": "Race - NM TT (B)", "min": null, "kom": null}, {"date": "2026-06-28", "week": "w26 2026", "dag": "Søndag", "hoved": "Race", "sek": "Race", "okt": "Race - NM Fellesstart (A)", "min": null, "kom": null}, {"date": "2026-06-29", "week": "w27 2026", "dag": "Mandag", "hoved": "Deload", "sek": "Recovery", "okt": "Recovery", "min": 0, "kom": null}, {"date": "2026-06-30", "week": "w27 2026", "dag": "Tirsdag", "hoved": null, "sek": "Endurance", "okt": "Endurance low (om bena er gode, 5min max)", "min": 90, "kom": null}, {"date": "2026-07-01", "week": "w27 2026", "dag": "Onsdag", "hoved": null, "sek": "Endurance", "okt": "Endurance", "min": 120, "kom": null}, {"date": "2026-07-02", "week": "w27 2026", "dag": "Torsdag", "hoved": null, "sek": "Endurance", "okt": "Endurance", "min": 120, "kom": null}, {"date": "2026-07-03", "week": "w27 2026", "dag": "Fredag", "hoved": "VO2 Block", "sek": "Endurance", "okt": "Endurance 2h Z2 m 3×12s openers", "min": 120, "kom": null}, {"date": "2026-07-04", "week": "w27 2026", "dag": "Lørdag", "hoved": null, "sek": "Endurance", "okt": "Endurance m 2x2min@375, p4 + 3x12 sek openers", "min": 120, "kom": null}, {"date": "2026-07-05", "week": "w27 2026", "dag": "Søndag", "hoved": null, "sek": "VO2", "okt": "VO2 hard start 6x4, p5min (0:40@450+3:20@370)", "min": 150, "kom": null}, {"date": "2026-07-06", "week": "w28 2026", "dag": "Mandag", "hoved": null, "sek": "Recovery", "okt": "Recovery", "min": 60, "kom": null}, {"date": "2026-07-07", "week": "w28 2026", "dag": "Tirsdag", "hoved": null, "sek": "VO2", "okt": "VO2 5×5 min @ 375-385W p5 min Z1 (siste 2 reps nær-maks)", "min": 150, "kom": null}, {"date": "2026-07-08", "week": "w28 2026", "dag": "Onsdag", "hoved": null, "sek": "VO2", "okt": "VO2 kort 3×13×(30/15s): ON ~405-415W (~100% MAP), OFF ~205W", "min": 150, "kom": null}, {"date": "2026-07-09", "week": "w28 2026", "dag": "Torsdag", "hoved": null, "sek": "Recovery", "okt": "Recovery", "min": 60, "kom": null}, {"date": "2026-07-10", "week": "w28 2026", "dag": "Fredag", "hoved": null, "sek": "VO2", "okt": "VO2 5×5 min @ 375-385W p5 min Z1 (siste 2 reps nær-maks)", "min": 120, "kom": null}, {"date": "2026-07-11", "week": "w28 2026", "dag": "Lørdag", "hoved": null, "sek": "VO2", "okt": "Endurance først, så 6×3 min @ 385-400W,P4 min (etter 1500 kJ)", "min": 180, "kom": null}, {"date": "2026-07-12", "week": "w28 2026", "dag": "Søndag", "hoved": null, "sek": "Recovery", "okt": "Recovery", "min": 60, "kom": null}, {"date": "2026-07-13", "week": "w29 2026", "dag": "Mandag", "hoved": null, "sek": "Recovery", "okt": "Recovery", "min": 90, "kom": null}, {"date": "2026-07-14", "week": "w29 2026", "dag": "Tirsdag", "hoved": null, "sek": "VO2", "okt": "VO2 5×4 min @ 375-385W m 4 min + Z2", "min": 150, "kom": null}, {"date": "2026-07-15", "week": "w29 2026", "dag": "Onsdag", "hoved": "Ferie - vedlikehold", "sek": "Endurance", "okt": "Endurance low", "min": 120, "kom": "Sykkel i koffert, trene på alternativ sykkel"}, {"date": "2026-07-16", "week": "w29 2026", "dag": "Torsdag", "hoved": null, "sek": "Recovery", "okt": "Day off - Reisedag", "min": 0, "kom": "Beholde øktene, \nmen bytte og tilpasse til de dagene som det passer best\n\n16 dager\n4 x Day off - Reisedag\n3 x Day off\n3 x Endurance\n6 x Kvalitet"}, {"date": "2026-07-17", "week": "w29 2026", "dag": "Fredag", "hoved": null, "sek": "Endurance", "okt": "Endurance", "min": 90, "kom": null}, {"date": "2026-07-18", "week": "w29 2026", "dag": "Lørdag", "hoved": null, "sek": "Endurance", "okt": "Solid Endurance (250-260w, HR138-142, Alpha 0,95-1)", "min": 90, "kom": null}, {"date": "2026-07-19", "week": "w29 2026", "dag": "Søndag", "hoved": null, "sek": "Endurance", "okt": "Endurance m 5x30 sek@650", "min": 90, "kom": null}, {"date": "2026-07-20", "week": "w30 2026", "dag": "Mandag", "hoved": null, "sek": "Recovery", "okt": "Day off", "min": 0, "kom": null}, {"date": "2026-07-21", "week": "w30 2026", "dag": "Tirsdag", "hoved": null, "sek": "VO2", "okt": "VO2 5×3 min @ 380-395W m 3 min", "min": 120, "kom": null}, {"date": "2026-07-22", "week": "w30 2026", "dag": "Onsdag", "hoved": null, "sek": "Recovery", "okt": "Day off", "min": 0, "kom": null}, {"date": "2026-07-23", "week": "w30 2026", "dag": "Torsdag", "hoved": null, "sek": "VO2", "okt": "VO2 kort 4×8×(30/15s): ON ~405-415W (~100% MAP), OFF ~205W", "min": 120, "kom": null}, {"date": "2026-07-24", "week": "w30 2026", "dag": "Fredag", "hoved": null, "sek": "Endurance", "okt": "Endurance", "min": 90, "kom": null}, {"date": "2026-07-25", "week": "w30 2026", "dag": "Lørdag", "hoved": null, "sek": "Recovery", "okt": "Day off - Reisedag", "min": 0, "kom": null}, {"date": "2026-07-26", "week": "w30 2026", "dag": "Søndag", "hoved": null, "sek": "Endurance", "okt": "Endurance m 5x30 sek@650", "min": 90, "kom": null}, {"date": "2026-07-27", "week": "w31 2026", "dag": "Mandag", "hoved": null, "sek": "VO2", "okt": "VO2 5×4 min @ 375-390W m 4 min", "min": 120, "kom": null}, {"date": "2026-07-28", "week": "w31 2026", "dag": "Tirsdag", "hoved": null, "sek": "Recovery", "okt": "Day off - Reisedag", "min": 0, "kom": null}, {"date": "2026-07-29", "week": "w31 2026", "dag": "Onsdag", "hoved": null, "sek": "Recovery", "okt": "Day off", "min": 0, "kom": null}, {"date": "2026-07-30", "week": "w31 2026", "dag": "Torsdag", "hoved": null, "sek": "Endurance", "okt": "Endurance m 5x30 sek@650", "min": 90, "kom": null}, {"date": "2026-07-31", "week": "w31 2026", "dag": "Fredag", "hoved": null, "sek": "Recovery", "okt": "Day off - Reisedag", "min": 0, "kom": null}, {"date": "2026-08-01", "week": "w31 2026", "dag": "Lørdag", "hoved": "THP block", "sek": "Endurance", "okt": "Endurance m 3×2 min @ 360-375W + 3×12s", "min": 120, "kom": "Ikke kvalitet, men hjemme igjen"}, {"date": "2026-08-02", "week": "w31 2026", "dag": "Søndag", "hoved": null, "sek": "THP", "okt": "Terskel 4×15 min @ 328-335W m 5 min", "min": 150, "kom": null}, {"date": "2026-08-03", "week": "w32 2026", "dag": "Mandag", "hoved": null, "sek": "Recovery", "okt": "Recovery", "min": 60, "kom": null}, {"date": "2026-08-04", "week": "w32 2026", "dag": "Tirsdag", "hoved": null, "sek": "THP", "okt": "Over-under 3×20 min: [3 min @ 345-355W / 2 min @ 300W], 6 min pause", "min": 150, "kom": null}, {"date": "2026-08-05", "week": "w32 2026", "dag": "Onsdag", "hoved": null, "sek": "THP", "okt": "Over-under 3×15 min: [3 min @ 345W / 3 min @ 305W], 5 min pause", "min": 150, "kom": null}, {"date": "2026-08-06", "week": "w32 2026", "dag": "Torsdag", "hoved": null, "sek": "Recovery", "okt": "Recovery", "min": 60, "kom": null}, {"date": "2026-08-07", "week": "w32 2026", "dag": "Fredag", "hoved": null, "sek": "Endurance", "okt": "Endurance", "min": 120, "kom": null}, {"date": "2026-08-08", "week": "w32 2026", "dag": "Lørdag", "hoved": null, "sek": "Pre race", "okt": "Pre race 90-120 min: - 2x2min@375, p4 + 3x12 sek openers", "min": 90, "kom": null}, {"date": "2026-08-09", "week": "w32 2026", "dag": "Søndag", "hoved": null, "sek": "Race", "okt": "Race - Øyern Rundt (B)", "min": 210, "kom": null}, {"date": "2026-08-10", "week": "w33 2026", "dag": "Mandag", "hoved": null, "sek": "Recovery", "okt": "Recovery", "min": 60, "kom": null}, {"date": "2026-08-11", "week": "w33 2026", "dag": "Tirsdag", "hoved": null, "sek": "Endurance", "okt": "Endurance m 3×2 min @ 360-375W + 3×12s", "min": 120, "kom": null}, {"date": "2026-08-12", "week": "w33 2026", "dag": "Onsdag", "hoved": null, "sek": "THP", "okt": "THP pyramide 30-20-10-20-30 @315-325-340-325-315W", "min": 180, "kom": null}, {"date": "2026-08-13", "week": "w33 2026", "dag": "Torsdag", "hoved": null, "sek": "Recovery", "okt": "Endurance low", "min": 120, "kom": null}, {"date": "2026-08-14", "week": "w33 2026", "dag": "Fredag", "hoved": null, "sek": "Endurance", "okt": "Solid Endurance (250-260w, HR138-142, Alpha 0,95-1)", "min": 150, "kom": null}, {"date": "2026-08-15", "week": "w33 2026", "dag": "Lørdag", "hoved": null, "sek": "Endurance", "okt": "Endurance", "min": 120, "kom": null}, {"date": "2026-08-16", "week": "w33 2026", "dag": "Søndag", "hoved": null, "sek": "THP", "okt": "1x45 @325-335", "min": 150, "kom": null}, {"date": "2026-08-17", "week": "w34 2026", "dag": "Mandag", "hoved": null, "sek": "Recovery", "okt": "Endurance low", "min": 120, "kom": null}, {"date": "2026-08-18", "week": "w34 2026", "dag": "Tirsdag", "hoved": null, "sek": "VO2", "okt": "VO2 5×6 min @ 365-375W P5 min", "min": 150, "kom": null}, {"date": "2026-08-19", "week": "w34 2026", "dag": "Onsdag", "hoved": null, "sek": "THP", "okt": "2h enduranse så 3x30 @320", "min": 240, "kom": null}, {"date": "2026-08-20", "week": "w34 2026", "dag": "Torsdag", "hoved": null, "sek": "Recovery", "okt": "Recovery", "min": 60, "kom": null}, {"date": "2026-08-21", "week": "w34 2026", "dag": "Fredag", "hoved": null, "sek": "Endurance", "okt": "Endurance m 3×12s openers", "min": 120, "kom": null}, {"date": "2026-08-22", "week": "w34 2026", "dag": "Lørdag", "hoved": null, "sek": "Pre race", "okt": "Pre race 90-120 min: - 2x2min@375, p4 + 3x12 sek openers", "min": 90, "kom": null}, {"date": "2026-08-23", "week": "w34 2026", "dag": "Søndag", "hoved": null, "sek": "Race", "okt": "Race - 2-mila iTT (C)", "min": 45, "kom": null}, {"date": "2026-08-24", "week": "w35 2026", "dag": "Mandag", "hoved": "Taper", "sek": "Endurance", "okt": "Endurance m 3×12s openers", "min": 120, "kom": null}, {"date": "2026-08-25", "week": "w35 2026", "dag": "Tirsdag", "hoved": null, "sek": "Endurance", "okt": "Endurance", "min": 120, "kom": null}, {"date": "2026-08-26", "week": "w35 2026", "dag": "Onsdag", "hoved": null, "sek": "Endurance", "okt": "Endurance m 3×2 min @ 360-375W + 3×12s", "min": 120, "kom": null}, {"date": "2026-08-27", "week": "w35 2026", "dag": "Torsdag", "hoved": null, "sek": "Recovery", "okt": "Reisedag - Day off", "min": 0, "kom": "Reisedag - Reier 04:00 lokal tid - Day off"}, {"date": "2026-08-28", "week": "w35 2026", "dag": "Fredag", "hoved": null, "sek": "Recovery", "okt": "Lett spinn 30-45 min Z1 (kveld etter ankomst)", "min": 60, "kom": "Reisedag - Fremme ca  18:00 lokal tid - Kan trene på kvelden etter ankomst"}, {"date": "2026-08-29", "week": "w35 2026", "dag": "Lørdag", "hoved": null, "sek": "Pre race", "okt": "Pre race 90-120 min: - 2x2min@375, p4 + 3x12 sek openers", "min": 90, "kom": null}, {"date": "2026-08-30", "week": "w35 2026", "dag": "Søndag", "hoved": "Rece", "sek": "Race", "okt": "Race . VM Master M45-49 Fellesstart (A)", "min": 240, "kom": null}, {"date": "2026-08-31", "week": "w36 2026", "dag": "Mandag", "hoved": null, "sek": "Endurance", "okt": "3-6h rolig Endurance", "min": 360, "kom": null}, {"date": "2026-09-01", "week": "w36 2026", "dag": "Tirsdag", "hoved": null, "sek": "Endurance", "okt": "3-6h rolig Endurance", "min": 360, "kom": null}, {"date": "2026-09-02", "week": "w36 2026", "dag": "Onsdag", "hoved": "Deload", "sek": "Recovery", "okt": "Reisedag - kan trene kort tidlig", "min": 0, "kom": "Reisedag - Kan trene kort tidlig på morgenen"}, {"date": "2026-09-03", "week": "w36 2026", "dag": "Torsdag", "hoved": null, "sek": "Recovery", "okt": "Day off - Tur i Tokyo", "min": 0, "kom": "Day off - Tur i Tokyo"}, {"date": "2026-09-04", "week": "w36 2026", "dag": "Fredag", "hoved": null, "sek": "Recovery", "okt": "Reisedag - Day off", "min": 0, "kom": "Reisedag - Reier 07:00 lokal tid, hjemme 23:59 lokal tid - Day off"}, {"date": "2026-09-05", "week": "w36 2026", "dag": "Lørdag", "hoved": null, "sek": "Pre race", "okt": "Pre race 90-120 min: - 2x2min@375, p4 + 3x12 sek openers", "min": 90, "kom": null}, {"date": "2026-09-06", "week": "w36 2026", "dag": "Søndag", "hoved": "Repeatibility block", "sek": "Race", "okt": "Race - Kråketråkken (C)", "min": 165, "kom": null}, {"date": "2026-09-07", "week": "w37 2026", "dag": "Mandag", "hoved": null, "sek": "Recovery", "okt": "Day off", "min": 0, "kom": null}, {"date": "2026-09-08", "week": "w37 2026", "dag": "Tirsdag", "hoved": null, "sek": "Endurance", "okt": "Endurance", "min": 120, "kom": null}, {"date": "2026-09-09", "week": "w37 2026", "dag": "Onsdag", "hoved": null, "sek": "FRC", "okt": "8×[2 min @ 400W + 1 min Z2] + sluttspurt (etter 1800 kJ)", "min": 180, "kom": null}, {"date": "2026-09-10", "week": "w37 2026", "dag": "Torsdag", "hoved": null, "sek": "Endurance", "okt": "Endurance", "min": 120, "kom": null}, {"date": "2026-09-11", "week": "w37 2026", "dag": "Fredag", "hoved": null, "sek": "Endurance", "okt": "Endurance", "min": 120, "kom": null}, {"date": "2026-09-12", "week": "w37 2026", "dag": "Lørdag", "hoved": null, "sek": "Pre race", "okt": "Pre race 90-120 min: - 2x2min@375, p4 + 3x12 sek openers", "min": 90, "kom": null}, {"date": "2026-09-13", "week": "w37 2026", "dag": "Søndag", "hoved": null, "sek": "Race", "okt": "Race - Ullensaker Rundt (B)", "min": 165, "kom": null}, {"date": "2026-09-14", "week": "w38 2026", "dag": "Mandag", "hoved": null, "sek": "Recovery", "okt": "Day off", "min": 0, "kom": null}, {"date": "2026-09-15", "week": "w38 2026", "dag": "Tirsdag", "hoved": null, "sek": "Endurance", "okt": "Endurance", "min": 120, "kom": null}, {"date": "2026-09-16", "week": "w38 2026", "dag": "Onsdag", "hoved": null, "sek": "Endurance", "okt": "Endurance", "min": 120, "kom": null}, {"date": "2026-09-17", "week": "w38 2026", "dag": "Torsdag", "hoved": null, "sek": "FRC", "okt": "6×1 min maks (430-470W) m 4 min + 4×30s spurt + Z2", "min": 150, "kom": null}, {"date": "2026-09-18", "week": "w38 2026", "dag": "Fredag", "hoved": null, "sek": "Endurance", "okt": "Endurance", "min": 120, "kom": null}, {"date": "2026-09-19", "week": "w38 2026", "dag": "Lørdag", "hoved": null, "sek": "VO2", "okt": "VO2 kort 3×13×(30/15s): ON ~405-415W (MAP), OFF ~205", "min": 150, "kom": null}, {"date": "2026-09-20", "week": "w38 2026", "dag": "Søndag", "hoved": null, "sek": "Recovery", "okt": "Recovery", "min": 60, "kom": null}, {"date": "2026-09-21", "week": "w39 2026", "dag": "Mandag", "hoved": null, "sek": "Recovery", "okt": "Day off", "min": 0, "kom": null}, {"date": "2026-09-22", "week": "w39 2026", "dag": "Tirsdag", "hoved": null, "sek": "FRC", "okt": "8×[2 min @ 400W + 1 min Z2] + sluttspurt (etter 1800 kJ)", "min": 180, "kom": null}, {"date": "2026-09-23", "week": "w39 2026", "dag": "Onsdag", "hoved": null, "sek": "Recovery", "okt": "Recovery", "min": 60, "kom": null}, {"date": "2026-09-24", "week": "w39 2026", "dag": "Torsdag", "hoved": null, "sek": "Endurance", "okt": "Endurance", "min": 120, "kom": null}, {"date": "2026-09-25", "week": "w39 2026", "dag": "Fredag", "hoved": null, "sek": "Pre race", "okt": "Pre race 90-120 min: - 2x2min@375, p4 + 3x12 sek openers", "min": 90, "kom": null}, {"date": "2026-09-26", "week": "w39 2026", "dag": "Lørdag", "hoved": null, "sek": "Race", "okt": "Race - 5 Sjøen Rundt (B)", "min": 165, "kom": null}, {"date": "2026-09-27", "week": "w39 2026", "dag": "Søndag", "hoved": null, "sek": "Recovery", "okt": "Day off", "min": 0, "kom": null}, {"date": "2026-09-28", "week": "w40 2026", "dag": "Mandag", "hoved": "Taper", "sek": "Recovery", "okt": "Endurance low", "min": 90, "kom": null}, {"date": "2026-09-29", "week": "w40 2026", "dag": "Tirsdag", "hoved": null, "sek": "Endurance", "okt": "Endurance m 3×12s openers", "min": 120, "kom": null}, {"date": "2026-09-30", "week": "w40 2026", "dag": "Onsdag", "hoved": null, "sek": "Endurance", "okt": "Endurance", "min": 120, "kom": null}, {"date": "2026-10-01", "week": "w40 2026", "dag": "Torsdag", "hoved": null, "sek": "Endurance", "okt": "Endurance m 3×2 min @ 360-375W + 3×12s", "min": 120, "kom": null}, {"date": "2026-10-02", "week": "w40 2026", "dag": "Fredag", "hoved": null, "sek": "Recovery", "okt": "Endurance low", "min": 120, "kom": "Reisedag - Kan trene på kvelden etter ankomst"}, {"date": "2026-10-03", "week": "w40 2026", "dag": "Lørdag", "hoved": null, "sek": "Pre race", "okt": "Pre race 90-120 min: - 2x2min@375, p4 + 3x12 sek openers", "min": 90, "kom": null}, {"date": "2026-10-04", "week": "w40 2026", "dag": "Søndag", "hoved": "Rece", "sek": "Race", "okt": "Race - UCI Varese, EuropaMesterskap M45-49 (A)", "min": 240, "kom": null}, {"date": "2026-10-05", "week": "w41 2026", "dag": "Mandag", "hoved": null, "sek": "Endurance", "okt": "3-6h rolig Endurance", "min": 360, "kom": "Langtur m is"}, {"date": "2026-10-06", "week": "w41 2026", "dag": "Tirsdag", "hoved": null, "sek": "Recovery", "okt": "Reisedag - Day off", "min": 0, "kom": "Reisedag - Day off"}, {"date": "2026-10-07", "week": "w41 2026", "dag": "Onsdag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}, {"date": "2026-10-08", "week": "w41 2026", "dag": "Torsdag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}, {"date": "2026-10-09", "week": "w41 2026", "dag": "Fredag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}, {"date": "2026-10-10", "week": "w41 2026", "dag": "Lørdag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}, {"date": "2026-10-11", "week": "w41 2026", "dag": "Søndag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}, {"date": "2026-10-12", "week": "w42 2026", "dag": "Mandag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}, {"date": "2026-10-13", "week": "w42 2026", "dag": "Tirsdag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}, {"date": "2026-10-14", "week": "w42 2026", "dag": "Onsdag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}, {"date": "2026-10-15", "week": "w42 2026", "dag": "Torsdag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}, {"date": "2026-10-16", "week": "w42 2026", "dag": "Fredag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": "Max 120 min"}, {"date": "2026-10-17", "week": "w42 2026", "dag": "Lørdag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": "Konsert Malmø - Day off"}, {"date": "2026-10-18", "week": "w42 2026", "dag": "Søndag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": "Reise - Day off"}, {"date": "2026-10-19", "week": "w43 2026", "dag": "Mandag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}, {"date": "2026-10-20", "week": "w43 2026", "dag": "Tirsdag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}, {"date": "2026-10-21", "week": "w43 2026", "dag": "Onsdag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}, {"date": "2026-10-22", "week": "w43 2026", "dag": "Torsdag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}, {"date": "2026-10-23", "week": "w43 2026", "dag": "Fredag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}, {"date": "2026-10-24", "week": "w43 2026", "dag": "Lørdag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}, {"date": "2026-10-25", "week": "w43 2026", "dag": "Søndag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}, {"date": "2026-10-26", "week": "w44 2026", "dag": "Mandag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}, {"date": "2026-10-27", "week": "w44 2026", "dag": "Tirsdag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}, {"date": "2026-10-28", "week": "w44 2026", "dag": "Onsdag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": "Reisedag - Reier 08:00 lokal tid, framme 23:59 lokal tid - Day off"}, {"date": "2026-10-29", "week": "w44 2026", "dag": "Torsdag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}, {"date": "2026-10-30", "week": "w44 2026", "dag": "Fredag", "hoved": "Race", "sek": "Race", "okt": "Race - VM 24h iTT (A)", "min": null, "kom": null}, {"date": "2026-10-31", "week": "w44 2026", "dag": "Lørdag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}, {"date": "2026-11-01", "week": "w44 2026", "dag": "Søndag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}, {"date": "2026-11-02", "week": "w45 2026", "dag": "Mandag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}, {"date": "2026-11-03", "week": "w45 2026", "dag": "Tirsdag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}, {"date": "2026-11-04", "week": "w45 2026", "dag": "Onsdag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": "Reisedag - Day off - Start periode off season - deload etter sesong"}, {"date": "2026-11-05", "week": "w45 2026", "dag": "Torsdag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": "Reisedag - Day off"}, {"date": "2026-11-06", "week": "w45 2026", "dag": "Fredag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}, {"date": "2026-11-07", "week": "w45 2026", "dag": "Lørdag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}, {"date": "2026-11-08", "week": "w45 2026", "dag": "Søndag", "hoved": null, "sek": null, "okt": null, "min": null, "kom": null}];            // innebygd reserveplan – overstyres av live ./plan.json
+const SRC  = "./plan.json";       // datakilde (samme origin når hostet)
+let PLAN = BOOT;
+let sel  = localISO(new Date());
+let fetchedAt = null;
+let offline = false;
+
+const ZONES = {
+  recovery:{label:"Recovery",c:"#5B8AA6",dim:"#1a2a33"},
+  endurance:{label:"Endurance",c:"#4F9FD0",dim:"#15293a"},
+  tempo:{label:"Tempo",c:"#4FB58C",dim:"#13302a"},
+  ss:{label:"Sweet Spot",c:"#C9B452",dim:"#2d2912"},
+  thp:{label:"Terskel",c:"#E0913C",dim:"#33240f"},
+  vo2:{label:"VO2",c:"#E55C3C",dim:"#371a12"},
+  frc:{label:"FRC / Anaerob",c:"#D9416B",dim:"#341320"},
+  race:{label:"Race",c:"#E8C36B",dim:"#2e2510"},
+  taper:{label:"Taper",c:"#9C8AD0",dim:"#231c33"},
+  none:{label:"Hvile",c:"#5C6B78",dim:"#161d24"},
+};
+const MND=["jan","feb","mar","apr","mai","jun","jul","aug","sep","okt","nov","des"];
+
+function classify(s){
+  const t=`${s.sek||""} ${s.okt||""}`.toLowerCase();
+  const h=`${s.hoved||""}`.toLowerCase();
+  if(t.includes("race")||h.includes("race"))return"race";
+  if(/\bvo2\b/.test(t))return"vo2";
+  if(/thp|terskel/.test(t))return"thp";
+  if(/\bss\b|sweet/.test(t))return"ss";
+  if(/tempo/.test(t))return"tempo";
+  if(/frc|repeatab/.test(t))return"frc";
+  if(/endurance|\bz2\b/.test(t))return"endurance";
+  if(/recovery|hvile/.test(t)||h.includes("deload"))return"recovery";
+  if(h.includes("taper"))return"taper";
+  return"none";
+}
+function fmtDur(min){ if(min==null||min===0)return"Hvile"; const h=Math.floor(min/60),m=min%60;
+  return h&&m?`${h}t ${m}m`:h?`${h}t`:`${m}m`; }
+function localISO(d){ return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`; }
+function parseISO(iso){ const[a,b,c]=iso.split("-").map(Number); return new Date(a,b-1,c); }
+function byDate(iso){ return PLAN.find(p=>p.date===iso)||null; }
+function pretty(iso){ const[,m,d]=iso.split("-").map(Number); return `${d}. ${MND[m-1]}`; }
+function weekDates(iso){ const dt=parseISO(iso); const dow=(dt.getDay()+6)%7;
+  const mon=new Date(dt); mon.setDate(dt.getDate()-dow);
+  return Array.from({length:7},(_,i)=>{const x=new Date(mon);x.setDate(mon.getDate()+i);return localISO(x);}); }
+function esc(s){ return (s||"").replace(/[&<>]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[m])); }
+function chip(zone,size){ const z=ZONES[zone];
+  return `<span class="chip ${size}" style="background:${z.dim};color:${z.c};border:1px solid ${z.c}55"><span class="dot" style="background:${z.c}"></span>${z.label}</span>`; }
+
+function render(){
+  const today=localISO(new Date());
+  const next=localISO((()=>{const d=parseISO(sel);d.setDate(d.getDate()+1);return d;})());
+  const prev=localISO((()=>{const d=parseISO(sel);d.setDate(d.getDate()-1);return d;})());
+  const first=PLAN[0]?.date, last=PLAN[PLAN.length-1]?.date;
+  const inRange=first&&sel>=first&&sel<=last;
+
+  const s=byDate(sel); const zone=s?classify(s):"none"; const z=ZONES[zone];
+  const fase=(s&&s.hoved&&classify(s)!=="race")?s.hoved:null;
+
+  // hero
+  const hero=`
+    <div class="hero" style="border:1px solid ${z.c}40; box-shadow:0 0 0 1px #0b1117,0 10px 30px -18px ${z.c}">
+      <div class="top" style="background:${z.c}"></div>
+      <div class="body">
+        <div class="meta">
+          <div class="eyebrow mono">${sel===today?"I dag":"Valgt dag"} · ${s?esc(s.dag):""} ${pretty(sel)}</div>
+          ${fase?`<span class="fase mono">${esc(fase)}</span>`:""}
+        </div>
+        ${chip(zone,"lg")}
+        <div class="dur mono">${fmtDur(s?s.min:null)}</div>
+        <div class="okt">${s&&s.okt?esc(s.okt):"Ingen planlagt økt."}</div>
+        ${s&&s.kom?`<div class="kom" style="border-left:2px solid ${z.c}">${esc(s.kom)}</div>`:""}
+      </div>
+    </div>`;
+
+  // next
+  const ns=byDate(next); const nz=ns?classify(ns):"none";
+  const nextCard=`
+    <div class="next">
+      <div class="lbl mono">Neste · ${ns?esc(ns.dag):""} ${pretty(next)}</div>
+      <div class="row">${chip(nz,"sm")}<span class="ndur mono">${fmtDur(ns?ns.min:null)}</span></div>
+      <div class="nokt">${ns&&ns.okt?esc(ns.okt):"Ingen planlagt økt."}</div>
+    </div>`;
+
+  // week
+  const days=weekDates(sel);
+  const wk=byDate(days.find(d=>byDate(d))||days[0]);
+  const rows=days.map(d=>{
+    const ds=byDate(d); const dz=ds?classify(ds):"none"; const c=ZONES[dz].c;
+    const active=d===sel;
+    return `<button class="day${active?" active":""}" data-d="${d}"
+      style="${active?`background:#1b2731;border:1px solid ${c}55`:""}">
+      <span class="dg mono">${ds?esc(ds.dag).slice(0,3):""}</span>
+      <span class="dot" style="background:${c}"></span>
+      <span class="dk">${ds&&ds.okt?esc(ds.okt):"—"}</span>
+      <span class="dd mono" style="${active?`color:${c}`:""}">${ds?fmtDur(ds.min):""}</span>
+    </button>`;
+  }).join("");
+  const week=`<div class="week"><div class="wlbl mono">${wk?esc(wk.week):"Uke"}</div>${rows}</div>`;
+
+  const banner=!inRange?`<div class="banner">Ingen plan lagt for ${pretty(sel)}. Aktiv plan dekker ${pretty(first)} – ${pretty(last)} ${last.slice(0,4)}.</div>`:"";
+
+  const stamp = offline
+    ? `Frakoblet · viser lagret plan`
+    : (fetchedAt?`Plan hentet ${fetchedAt}`:`Innebygd plan`);
+
+  document.getElementById("app").innerHTML=`
+    <div class="topbar">
+      <div>
+        <div class="title">Dagens økt</div>
+        <div class="sub mono">Plan_Kenneth · ${sel===today?"live dato":"bla"}</div>
+      </div>
+      <div class="nav">
+        <button class="nb" data-go="prev">‹</button>
+        <button class="nb solid" data-go="today">I dag</button>
+        <button class="nb" data-go="next">›</button>
+      </div>
+    </div>
+    ${banner}${hero}${nextCard}${week}
+    <div class="foot">
+      <span class="mono">${stamp}</span>
+      <button class="rf mono" data-go="refresh">Oppdater</button>
+    </div>`;
+
+  document.querySelectorAll("[data-d]").forEach(b=>b.onclick=()=>{sel=b.dataset.d;render();});
+  document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>{
+    const g=b.dataset.go;
+    if(g==="prev")sel=prev; else if(g==="next")sel=next; else if(g==="today")sel=today;
+    else if(g==="refresh"){loadLive(true);return;}
+    render();
+  });
+}
+
+async function loadLive(force){
+  try{
+    const r=await fetch(SRC+"?t="+Date.now(),{cache:"no-store"});
+    if(!r.ok)throw 0;
+    const data=await r.json();
+    if(Array.isArray(data)&&data.length){
+      PLAN=data; offline=false;
+      const now=new Date(); fetchedAt=`${String(now.getHours()).padStart(2,"0")}:${String(now.getMinutes()).padStart(2,"0")}`;
+      try{ localStorage.setItem("plan_cache",JSON.stringify({data,at:fetchedAt})); }catch(e){}
+    }
+  }catch(e){
+    try{
+      const c=JSON.parse(localStorage.getItem("plan_cache")||"null");
+      if(c&&c.data){ PLAN=c.data; fetchedAt=c.at; }
+    }catch(e2){}
+    offline=true;
+  }
+  render();
+}
+
+// init: cached first (instant), then network
+try{ const c=JSON.parse(localStorage.getItem("plan_cache")||"null"); if(c&&c.data){PLAN=c.data;fetchedAt=c.at;} }catch(e){}
+render();
+loadLive();
+document.addEventListener("visibilitychange",()=>{ if(!document.hidden) loadLive(); });
+
+if("serviceWorker" in navigator){ navigator.serviceWorker.register("./sw.js").catch(()=>{}); }
+</script>
+</body>
+</html>
