@@ -1835,8 +1835,8 @@
 "dag": "Tirsdag",
 "hoved": "THP block",
 "sek": null,
-"okt": "Så får vi se - vil ikke tippe lengre fram I tid enn hit",
-"min": null,
+"okt": "Felles Moss hard",
+"min": 150,
 "kom": null
 },
 {
@@ -1845,8 +1845,8 @@
 "dag": "Onsdag",
 "hoved": "THP block",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "90-150 min Endurance",
+"min": 120,
 "kom": null
 },
 {
@@ -1855,8 +1855,8 @@
 "dag": "Torsdag",
 "hoved": "THP block",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "Felles Moss hard",
+"min": 150,
 "kom": null
 },
 {
@@ -1865,8 +1865,8 @@
 "dag": "Fredag",
 "hoved": "THP block",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "90-150 min Endurance",
+"min": 120,
 "kom": null
 },
 {
@@ -1875,8 +1875,8 @@
 "dag": "Lørdag",
 "hoved": "THP block",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "THP pyramide 30-20-10-20-30 @225-235-250-235-225W, pause 5 min",
+"min": 210,
 "kom": null
 },
 {
@@ -1885,8 +1885,8 @@
 "dag": "Søndag",
 "hoved": "THP block",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "4h Endurance",
+"min": 240,
 "kom": null
 },
 {
@@ -1895,8 +1895,8 @@
 "dag": "Mandag",
 "hoved": "THP block",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "Day off",
+"min": 0,
 "kom": null
 },
 {
@@ -1905,8 +1905,8 @@
 "dag": "Tirsdag",
 "hoved": "THP block",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "Felles Moss hard",
+"min": 150,
 "kom": null
 },
 {
@@ -1915,8 +1915,8 @@
 "dag": "Onsdag",
 "hoved": "THP block",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "90-150 min Endurance",
+"min": 120,
 "kom": null
 },
 {
@@ -1925,8 +1925,8 @@
 "dag": "Torsdag",
 "hoved": "THP block",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "Felles Moss hard",
+"min": 150,
 "kom": null
 },
 {
@@ -1935,8 +1935,8 @@
 "dag": "Fredag",
 "hoved": "THP block",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "90-150 min Endurance",
+"min": 120,
 "kom": null
 },
 {
@@ -1945,8 +1945,8 @@
 "dag": "Lørdag",
 "hoved": "THP block",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "Over-under 3×15 min: [3 min @ 280W / 3 min @ 230W], 6 min pause",
+"min": 180,
 "kom": null
 },
 {
@@ -1955,8 +1955,8 @@
 "dag": "Søndag",
 "hoved": "THP block",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "60 min Endurance",
+"min": 60,
 "kom": null
 },
 {
@@ -1965,14 +1965,204 @@
 "dag": "Mandag",
 "hoved": "Deload",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "Day off",
+"min": 0,
 "kom": null
 },
 {
 "date": "2026-08-25",
 "week": "w35 2026",
 "dag": "Tirsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": "Day off",
+"min": 0,
+"kom": null
+},
+{
+"date": "2026-08-26",
+"week": "w35 2026",
+"dag": "Onsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": "60 min Endurance",
+"min": 60,
+"kom": null
+},
+{
+"date": "2026-08-27",
+"week": "w35 2026",
+"dag": "Torsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": "Felles Moss hard -prøv å holde denne rolig",
+"min": 150,
+"kom": null
+},
+{
+"date": "2026-08-28",
+"week": "w35 2026",
+"dag": "Fredag",
+"hoved": "Deload",
+"sek": null,
+"okt": "90-150 min Endurance",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-08-29",
+"week": "w35 2026",
+"dag": "Lørdag",
+"hoved": "Deload",
+"sek": null,
+"okt": "2h endurance m 6 stk 30-40 sek MAX spurter",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-08-30",
+"week": "w35 2026",
+"dag": "Søndag",
+"hoved": "Deload",
+"sek": null,
+"okt": "4h Endurance",
+"min": 240,
+"kom": null
+},
+{
+"date": "2026-08-31",
+"week": "w36 2026",
+"dag": "Mandag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-09-01",
+"week": "w36 2026",
+"dag": "Tirsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-09-02",
+"week": "w36 2026",
+"dag": "Onsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-09-03",
+"week": "w36 2026",
+"dag": "Torsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-09-04",
+"week": "w36 2026",
+"dag": "Fredag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-09-05",
+"week": "w36 2026",
+"dag": "Lørdag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-09-06",
+"week": "w36 2026",
+"dag": "Søndag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-09-07",
+"week": "w37 2026",
+"dag": "Mandag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-09-08",
+"week": "w37 2026",
+"dag": "Tirsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-09-09",
+"week": "w37 2026",
+"dag": "Onsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-09-10",
+"week": "w37 2026",
+"dag": "Torsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-09-11",
+"week": "w37 2026",
+"dag": "Fredag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-09-12",
+"week": "w37 2026",
+"dag": "Lørdag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-09-13",
+"week": "w37 2026",
+"dag": "Søndag",
 "hoved": "Deload",
 "sek": null,
 "okt": null,
