@@ -2033,75 +2033,565 @@
 "date": "2026-08-31",
 "week": "w36 2026",
 "dag": "Mandag",
-"hoved": "Deload",
+"hoved": "THP/VO2 block",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "Day off",
+"min": 0,
 "kom": null
 },
 {
 "date": "2026-09-01",
 "week": "w36 2026",
 "dag": "Tirsdag",
-"hoved": "Deload",
+"hoved": "THP/VO2 block",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "Felles Moss hard",
+"min": 150,
 "kom": null
 },
 {
 "date": "2026-09-02",
 "week": "w36 2026",
 "dag": "Onsdag",
-"hoved": "Deload",
+"hoved": "THP/VO2 block",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "90-150 min Endurance",
+"min": 120,
 "kom": null
 },
 {
 "date": "2026-09-03",
 "week": "w36 2026",
 "dag": "Torsdag",
-"hoved": "Deload",
+"hoved": "THP/VO2 block",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "Felles Moss hard",
+"min": 150,
 "kom": null
 },
 {
 "date": "2026-09-04",
 "week": "w36 2026",
 "dag": "Fredag",
-"hoved": "Deload",
+"hoved": "THP/VO2 block",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "90-150 min Endurance",
+"min": 120,
 "kom": null
 },
 {
 "date": "2026-09-05",
 "week": "w36 2026",
 "dag": "Lørdag",
-"hoved": "Deload",
-"sek": null,
-"okt": null,
-"min": null,
+"hoved": "THP/VO2 block",
+"sek": "Minst 2h endurance før intervallene",
+"okt": "3-4h endurance m Over-under 3×15 min: [3 min @ 280W / 3 min @ 230W], 6 min pause",
+"min": 240,
 "kom": null
 },
 {
 "date": "2026-09-06",
 "week": "w36 2026",
 "dag": "Søndag",
-"hoved": "Deload",
+"hoved": "THP/VO2 block",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "90-150 min Endurance",
+"min": 120,
 "kom": null
 },
 {
 "date": "2026-09-07",
 "week": "w37 2026",
+"dag": "Mandag",
+"hoved": "THP/VO2 block",
+"sek": null,
+"okt": "Day off",
+"min": 0,
+"kom": null
+},
+{
+"date": "2026-09-08",
+"week": "w37 2026",
+"dag": "Tirsdag",
+"hoved": "THP/VO2 block",
+"sek": null,
+"okt": "Felles Moss hard",
+"min": 150,
+"kom": null
+},
+{
+"date": "2026-09-09",
+"week": "w37 2026",
+"dag": "Onsdag",
+"hoved": "THP/VO2 block",
+"sek": null,
+"okt": "90-150 min Endurance",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-09-10",
+"week": "w37 2026",
+"dag": "Torsdag",
+"hoved": "THP/VO2 block",
+"sek": null,
+"okt": "Felles Moss hard",
+"min": 150,
+"kom": null
+},
+{
+"date": "2026-09-11",
+"week": "w37 2026",
+"dag": "Fredag",
+"hoved": "THP/VO2 block",
+"sek": null,
+"okt": "90-150 min Endurance",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-09-12",
+"week": "w37 2026",
+"dag": "Lørdag",
+"hoved": "THP/VO2 block",
+"sek": null,
+"okt": "VO2 5x5min@300, P4-6min",
+"min": 150,
+"kom": null
+},
+{
+"date": "2026-09-13",
+"week": "w37 2026",
+"dag": "Søndag",
+"hoved": "THP/VO2 block",
+"sek": null,
+"okt": "90-150 min Endurance",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-09-14",
+"week": "w38 2026",
+"dag": "Mandag",
+"hoved": "THP/VO2 block",
+"sek": null,
+"okt": "Day off",
+"min": 0,
+"kom": null
+},
+{
+"date": "2026-09-15",
+"week": "w38 2026",
+"dag": "Tirsdag",
+"hoved": "THP/VO2 block",
+"sek": null,
+"okt": "Felles Moss hard",
+"min": 150,
+"kom": null
+},
+{
+"date": "2026-09-16",
+"week": "w38 2026",
+"dag": "Onsdag",
+"hoved": "THP/VO2 block",
+"sek": null,
+"okt": "90-150 min Endurance",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-09-17",
+"week": "w38 2026",
+"dag": "Torsdag",
+"hoved": "THP/VO2 block",
+"sek": null,
+"okt": "Felles Moss hard",
+"min": 150,
+"kom": null
+},
+{
+"date": "2026-09-18",
+"week": "w38 2026",
+"dag": "Fredag",
+"hoved": "THP/VO2 block",
+"sek": null,
+"okt": "90-150 min Endurance",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-09-19",
+"week": "w38 2026",
+"dag": "Lørdag",
+"hoved": "THP/VO2 block",
+"sek": null,
+"okt": "VO2 5x5min@300, P4-6min",
+"min": 150,
+"kom": null
+},
+{
+"date": "2026-09-20",
+"week": "w38 2026",
+"dag": "Søndag",
+"hoved": "THP/VO2 block",
+"sek": null,
+"okt": "90-150 min Endurance",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-09-21",
+"week": "w39 2026",
+"dag": "Mandag",
+"hoved": "THP/VO2 block",
+"sek": null,
+"okt": "Day off",
+"min": 0,
+"kom": null
+},
+{
+"date": "2026-09-22",
+"week": "w39 2026",
+"dag": "Tirsdag",
+"hoved": "THP/VO2 block",
+"sek": null,
+"okt": "Felles Moss hard",
+"min": 150,
+"kom": null
+},
+{
+"date": "2026-09-23",
+"week": "w39 2026",
+"dag": "Onsdag",
+"hoved": "THP/VO2 block",
+"sek": null,
+"okt": "90-150 min Endurance",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-09-24",
+"week": "w39 2026",
+"dag": "Torsdag",
+"hoved": "THP/VO2 block",
+"sek": null,
+"okt": "Felles Moss hard",
+"min": 150,
+"kom": null
+},
+{
+"date": "2026-09-25",
+"week": "w39 2026",
+"dag": "Fredag",
+"hoved": "THP/VO2 block",
+"sek": null,
+"okt": "90-150 min Endurance",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-09-26",
+"week": "w39 2026",
+"dag": "Lørdag",
+"hoved": "THP/VO2 block",
+"sek": null,
+"okt": "THP pyramide 30-20-10-20-30 @235-245-260-245-235W, pause 5 min",
+"min": 210,
+"kom": null
+},
+{
+"date": "2026-09-27",
+"week": "w39 2026",
+"dag": "Søndag",
+"hoved": "THP/VO2 block",
+"sek": null,
+"okt": "90-150 min Endurance",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-09-28",
+"week": "w40 2026",
+"dag": "Mandag",
+"hoved": "Deload",
+"sek": null,
+"okt": "Day off",
+"min": 0,
+"kom": null
+},
+{
+"date": "2026-09-29",
+"week": "w40 2026",
+"dag": "Tirsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": "Day off",
+"min": 0,
+"kom": null
+},
+{
+"date": "2026-09-30",
+"week": "w40 2026",
+"dag": "Onsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": "Day off",
+"min": 0,
+"kom": null
+},
+{
+"date": "2026-10-01",
+"week": "w40 2026",
+"dag": "Torsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": "Day off",
+"min": 0,
+"kom": null
+},
+{
+"date": "2026-10-02",
+"week": "w40 2026",
+"dag": "Fredag",
+"hoved": "Deload",
+"sek": null,
+"okt": "90-150 min Endurance m 5x 30 sek max spurter",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-10-03",
+"week": "w40 2026",
+"dag": "Lørdag",
+"hoved": "Deload",
+"sek": null,
+"okt": "ROLIG jogg [puls så nærme sykkel endurance som mulig] - 20 min",
+"min": 20,
+"kom": null
+},
+{
+"date": "2026-10-04",
+"week": "w40 2026",
+"dag": "Søndag",
+"hoved": "Deload",
+"sek": null,
+"okt": "90-150 min Endurance m 3x3min @300 P=4min",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-10-05",
+"week": "w41 2026",
+"dag": "Mandag",
+"hoved": "Deload",
+"sek": null,
+"okt": "ROLIG jogg [puls så nærme sykkel endurance som mulig] - 30 min",
+"min": 30,
+"kom": null
+},
+{
+"date": "2026-10-06",
+"week": "w41 2026",
+"dag": "Tirsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": "Day off",
+"min": 0,
+"kom": null
+},
+{
+"date": "2026-10-07",
+"week": "w41 2026",
+"dag": "Onsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": "Day off",
+"min": 0,
+"kom": null
+},
+{
+"date": "2026-10-08",
+"week": "w41 2026",
+"dag": "Torsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": "ROLIG jogg [puls så nærme sykkel endurance som mulig] - 30 min",
+"min": 30,
+"kom": null
+},
+{
+"date": "2026-10-09",
+"week": "w41 2026",
+"dag": "Fredag",
+"hoved": "Deload",
+"sek": null,
+"okt": "90-150 min Endurance m 5x 30 sek max spurter",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-10-10",
+"week": "w41 2026",
+"dag": "Lørdag",
+"hoved": "Deload",
+"sek": null,
+"okt": "90-150 min Endurance m 3x3min @300 P=4min",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-10-11",
+"week": "w41 2026",
+"dag": "Søndag",
+"hoved": "Deload",
+"sek": null,
+"okt": "ROLIG jogg [puls så nærme sykkel endurance som mulig] - 40 min",
+"min": 40,
+"kom": null
+},
+{
+"date": "2026-10-12",
+"week": "w42 2026",
+"dag": "Mandag",
+"hoved": "Deload",
+"sek": null,
+"okt": "ROLIG jogg [puls så nærme sykkel endurance som mulig] - 40 min",
+"min": 40,
+"kom": null
+},
+{
+"date": "2026-10-13",
+"week": "w42 2026",
+"dag": "Tirsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": "ROLIG jogg [puls så nærme sykkel endurance som mulig] - 45 min",
+"min": 45,
+"kom": null
+},
+{
+"date": "2026-10-14",
+"week": "w42 2026",
+"dag": "Onsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": "Day off",
+"min": 0,
+"kom": null
+},
+{
+"date": "2026-10-15",
+"week": "w42 2026",
+"dag": "Torsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": "Day off",
+"min": 0,
+"kom": null
+},
+{
+"date": "2026-10-16",
+"week": "w42 2026",
+"dag": "Fredag",
+"hoved": "Deload",
+"sek": null,
+"okt": "90-150 min Endurance m 3x3min @300 P=4min",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-10-17",
+"week": "w42 2026",
+"dag": "Lørdag",
+"hoved": "Deload",
+"sek": null,
+"okt": "ROLIG jogg [puls så nærme sykkel endurance som mulig] - 50 min",
+"min": 50,
+"kom": null
+},
+{
+"date": "2026-10-18",
+"week": "w42 2026",
+"dag": "Søndag",
+"hoved": "Deload",
+"sek": null,
+"okt": "ROLIG jogg [puls så nærme sykkel endurance som mulig] - 60 min",
+"min": 60,
+"kom": null
+},
+{
+"date": "2026-10-19",
+"week": "w43 2026",
+"dag": "Mandag",
+"hoved": "Deload",
+"sek": null,
+"okt": "ROLIG jogg [puls så nærme sykkel endurance som mulig] - 60 min",
+"min": 60,
+"kom": null
+},
+{
+"date": "2026-10-20",
+"week": "w43 2026",
+"dag": "Tirsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": "Day off",
+"min": 0,
+"kom": null
+},
+{
+"date": "2026-10-21",
+"week": "w43 2026",
+"dag": "Onsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": "Day off",
+"min": 0,
+"kom": null
+},
+{
+"date": "2026-10-22",
+"week": "w43 2026",
+"dag": "Torsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": "90-150 min Endurance m 3x3min @300 P=4min",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-10-23",
+"week": "w43 2026",
+"dag": "Fredag",
+"hoved": "Deload",
+"sek": null,
+"okt": "ROLIG jogg [puls så nærme sykkel endurance som mulig] - 90 min",
+"min": 90,
+"kom": null
+},
+{
+"date": "2026-10-24",
+"week": "w43 2026",
+"dag": "Lørdag",
+"hoved": "Deload",
+"sek": null,
+"okt": "90-150 min Endurance m 5x 30 sek max spurter",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-10-25",
+"week": "w43 2026",
+"dag": "Søndag",
+"hoved": "Deload",
+"sek": null,
+"okt": "ROLIG jogg [puls så nærme sykkel endurance som mulig] - 60 min",
+"min": 60,
+"kom": null
+},
+{
+"date": "2026-10-26",
+"week": "w44 2026",
 "dag": "Mandag",
 "hoved": "Deload",
 "sek": null,
@@ -2110,8 +2600,8 @@
 "kom": null
 },
 {
-"date": "2026-09-08",
-"week": "w37 2026",
+"date": "2026-10-27",
+"week": "w44 2026",
 "dag": "Tirsdag",
 "hoved": "Deload",
 "sek": null,
@@ -2120,8 +2610,8 @@
 "kom": null
 },
 {
-"date": "2026-09-09",
-"week": "w37 2026",
+"date": "2026-10-28",
+"week": "w44 2026",
 "dag": "Onsdag",
 "hoved": "Deload",
 "sek": null,
@@ -2130,8 +2620,8 @@
 "kom": null
 },
 {
-"date": "2026-09-10",
-"week": "w37 2026",
+"date": "2026-10-29",
+"week": "w44 2026",
 "dag": "Torsdag",
 "hoved": "Deload",
 "sek": null,
@@ -2140,8 +2630,8 @@
 "kom": null
 },
 {
-"date": "2026-09-11",
-"week": "w37 2026",
+"date": "2026-10-30",
+"week": "w44 2026",
 "dag": "Fredag",
 "hoved": "Deload",
 "sek": null,
@@ -2150,8 +2640,8 @@
 "kom": null
 },
 {
-"date": "2026-09-12",
-"week": "w37 2026",
+"date": "2026-10-31",
+"week": "w44 2026",
 "dag": "Lørdag",
 "hoved": "Deload",
 "sek": null,
@@ -2160,8 +2650,78 @@
 "kom": null
 },
 {
-"date": "2026-09-13",
-"week": "w37 2026",
+"date": "2026-11-01",
+"week": "w44 2026",
+"dag": "Søndag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-11-02",
+"week": "w45 2026",
+"dag": "Mandag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-11-03",
+"week": "w45 2026",
+"dag": "Tirsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-11-04",
+"week": "w45 2026",
+"dag": "Onsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-11-05",
+"week": "w45 2026",
+"dag": "Torsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-11-06",
+"week": "w45 2026",
+"dag": "Fredag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-11-07",
+"week": "w45 2026",
+"dag": "Lørdag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-11-08",
+"week": "w45 2026",
 "dag": "Søndag",
 "hoved": "Deload",
 "sek": null,
