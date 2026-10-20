@@ -2593,75 +2593,355 @@
 "date": "2026-10-26",
 "week": "w44 2026",
 "dag": "Mandag",
-"hoved": "Deload",
+"hoved": "SS/THP",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "SS 2×30min @ 230, p8min  + Styekeprogram etter sykkel",
+"min": 120,
 "kom": null
 },
 {
 "date": "2026-10-27",
 "week": "w44 2026",
 "dag": "Tirsdag",
-"hoved": "Deload",
+"hoved": "SS/THP",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "Endurance 90-150 min",
+"min": 120,
 "kom": null
 },
 {
 "date": "2026-10-28",
 "week": "w44 2026",
 "dag": "Onsdag",
-"hoved": "Deload",
+"hoved": "SS/THP",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "Løp - 40 min @HR 150-160",
+"min": 60,
 "kom": null
 },
 {
 "date": "2026-10-29",
 "week": "w44 2026",
 "dag": "Torsdag",
-"hoved": "Deload",
+"hoved": "SS/THP",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "Løp -  3x10 min HR@165-170, p5min",
+"min": 60,
 "kom": null
 },
 {
 "date": "2026-10-30",
 "week": "w44 2026",
 "dag": "Fredag",
-"hoved": "Deload",
+"hoved": "SS/THP",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "Day off",
+"min": 0,
 "kom": null
 },
 {
 "date": "2026-10-31",
 "week": "w44 2026",
 "dag": "Lørdag",
-"hoved": "Deload",
+"hoved": "SS/THP",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "Over-under 2×[12 min: 3 min @ 230w / 3 min @ 280],  p8 min  mellom   + Styekeprogram etter sykkel",
+"min": 150,
 "kom": null
 },
 {
 "date": "2026-11-01",
 "week": "w44 2026",
 "dag": "Søndag",
-"hoved": "Deload",
+"hoved": "SS/THP",
 "sek": null,
-"okt": null,
-"min": null,
+"okt": "Rolig  langtur",
+"min": 210,
 "kom": null
 },
 {
 "date": "2026-11-02",
 "week": "w45 2026",
+"dag": "Mandag",
+"hoved": "SS/THP",
+"sek": "Rest",
+"okt": "Day off",
+"min": 0,
+"kom": null
+},
+{
+"date": "2026-11-03",
+"week": "w45 2026",
+"dag": "Tirsdag",
+"hoved": "SS/THP",
+"sek": "Kvalitet + styrke",
+"okt": "Alpe duZwift @250 + Styekeprogram etter sykkel",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-11-04",
+"week": "w45 2026",
+"dag": "Onsdag",
+"hoved": "SS/THP",
+"sek": "Løp 30-45 min -> Sykkel endurance low",
+"okt": "Løp 30-45 min HR 135-150  + Sykkel  90 min  endurance low",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-11-05",
+"week": "w45 2026",
+"dag": "Torsdag",
+"hoved": "SS/THP",
+"sek": "Endurance",
+"okt": "Endurance 90-150 min",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-11-06",
+"week": "w45 2026",
+"dag": "Fredag",
+"hoved": "SS/THP",
+"sek": "Kvalitet + styrke",
+"okt": "Over-under 3×[12 min: 3 min @ 230w / 3 min @ 280],  p8 min  mellom   + Styekeprogram etter sykkel",
+"min": 150,
+"kom": null
+},
+{
+"date": "2026-11-07",
+"week": "w45 2026",
+"dag": "Lørdag",
+"hoved": "SS/THP",
+"sek": "Løp 30-45 min -> Sykkel endurance low",
+"okt": "Løp 40-50 min HR 135-150  + Sykkel  90-120 min  endurance low",
+"min": 150,
+"kom": null
+},
+{
+"date": "2026-11-08",
+"week": "w45 2026",
+"dag": "Søndag",
+"hoved": "SS/THP",
+"sek": "Rolig langtur",
+"okt": "Rolig  langtur",
+"min": 240,
+"kom": null
+},
+{
+"date": "2026-11-09",
+"week": "w46 2026",
+"dag": "Mandag",
+"hoved": "SS/THP",
+"sek": null,
+"okt": "Day off",
+"min": 0,
+"kom": null
+},
+{
+"date": "2026-11-10",
+"week": "w46 2026",
+"dag": "Tirsdag",
+"hoved": "SS/THP",
+"sek": null,
+"okt": "Endurance med  3×3×30s maks. 4 min mellom rep, 8 min mellom serier  + Styekeprogram etter sykkel",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-11-11",
+"week": "w46 2026",
+"dag": "Onsdag",
+"hoved": "SS/THP",
+"sek": null,
+"okt": "Løp 40-50 min HR 135-150  + Sykkel  90 min  endurance low",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-11-12",
+"week": "w46 2026",
+"dag": "Torsdag",
+"hoved": "SS/THP",
+"sek": null,
+"okt": "Endurance 90-150 min",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-11-13",
+"week": "w46 2026",
+"dag": "Fredag",
+"hoved": "SS/THP",
+"sek": null,
+"okt": "Over-under 4×[12 min: 3 min @ 230w / 3 min @ 280],  p8 min  mellom   + Styekeprogram etter sykkel",
+"min": 150,
+"kom": null
+},
+{
+"date": "2026-11-14",
+"week": "w46 2026",
+"dag": "Lørdag",
+"hoved": "SS/THP",
+"sek": null,
+"okt": "Løp 40-50 min HR 135-150  + Sykkel  90-120 min  endurance low",
+"min": 150,
+"kom": null
+},
+{
+"date": "2026-11-15",
+"week": "w46 2026",
+"dag": "Søndag",
+"hoved": "SS/THP",
+"sek": null,
+"okt": "Rolig  langtur",
+"min": 240,
+"kom": null
+},
+{
+"date": "2026-11-16",
+"week": "w47 2026",
+"dag": "Mandag",
+"hoved": "SS/THP",
+"sek": null,
+"okt": "Day off",
+"min": 0,
+"kom": null
+},
+{
+"date": "2026-11-17",
+"week": "w47 2026",
+"dag": "Tirsdag",
+"hoved": "SS/THP",
+"sek": null,
+"okt": "SS 3×30min @ 230, p8min  + Styekeprogram etter sykkel",
+"min": 150,
+"kom": null
+},
+{
+"date": "2026-11-18",
+"week": "w47 2026",
+"dag": "Onsdag",
+"hoved": "SS/THP",
+"sek": null,
+"okt": "Løp 30-45 min HR 135-150  + Sykkel  90 min  endurance low",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-11-19",
+"week": "w47 2026",
+"dag": "Torsdag",
+"hoved": "SS/THP",
+"sek": null,
+"okt": "Endurance 90-150 min",
+"min": 120,
+"kom": null
+},
+{
+"date": "2026-11-20",
+"week": "w47 2026",
+"dag": "Fredag",
+"hoved": "SS/THP",
+"sek": null,
+"okt": "Over-under 3×[18 min: 3 min @ 230w / 3 min @ 280],  p8 min  mellom   + Styekeprogram etter sykkel",
+"min": 150,
+"kom": null
+},
+{
+"date": "2026-11-21",
+"week": "w47 2026",
+"dag": "Lørdag",
+"hoved": "SS/THP",
+"sek": null,
+"okt": "Løp 40-50 min HR 135-150  + Sykkel  90-120 min  endurance low",
+"min": 150,
+"kom": null
+},
+{
+"date": "2026-11-22",
+"week": "w47 2026",
+"dag": "Søndag",
+"hoved": "SS/THP",
+"sek": null,
+"okt": "Rolig  langtur",
+"min": 270,
+"kom": null
+},
+{
+"date": "2026-11-23",
+"week": "w48 2026",
+"dag": "Mandag",
+"hoved": "Deload",
+"sek": null,
+"okt": "Day off",
+"min": 0,
+"kom": null
+},
+{
+"date": "2026-11-24",
+"week": "w48 2026",
+"dag": "Tirsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": "Day off",
+"min": 0,
+"kom": null
+},
+{
+"date": "2026-11-25",
+"week": "w48 2026",
+"dag": "Onsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": "Endurance med  3×3×30s maks. 4 min mellom rep, 8 min mellom serier",
+"min": 75,
+"kom": null
+},
+{
+"date": "2026-11-26",
+"week": "w48 2026",
+"dag": "Torsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": "Løp 45 min HR 140",
+"min": 45,
+"kom": null
+},
+{
+"date": "2026-11-27",
+"week": "w48 2026",
+"dag": "Fredag",
+"hoved": "Deload",
+"sek": null,
+"okt": "Endurance 90 min",
+"min": 90,
+"kom": null
+},
+{
+"date": "2026-11-28",
+"week": "w48 2026",
+"dag": "Lørdag",
+"hoved": "Deload",
+"sek": null,
+"okt": "VO2 4×4 min @ 285-295, p6min",
+"min": 105,
+"kom": null
+},
+{
+"date": "2026-11-29",
+"week": "w48 2026",
+"dag": "Søndag",
+"hoved": "Deload",
+"sek": null,
+"okt": "Endurance 90 min",
+"min": 90,
+"kom": null
+},
+{
+"date": "2026-11-30",
+"week": "w49 2026",
 "dag": "Mandag",
 "hoved": "Deload",
 "sek": null,
@@ -2670,8 +2950,8 @@
 "kom": null
 },
 {
-"date": "2026-11-03",
-"week": "w45 2026",
+"date": "2026-12-01",
+"week": "w49 2026",
 "dag": "Tirsdag",
 "hoved": "Deload",
 "sek": null,
@@ -2680,8 +2960,8 @@
 "kom": null
 },
 {
-"date": "2026-11-04",
-"week": "w45 2026",
+"date": "2026-12-02",
+"week": "w49 2026",
 "dag": "Onsdag",
 "hoved": "Deload",
 "sek": null,
@@ -2690,8 +2970,8 @@
 "kom": null
 },
 {
-"date": "2026-11-05",
-"week": "w45 2026",
+"date": "2026-12-03",
+"week": "w49 2026",
 "dag": "Torsdag",
 "hoved": "Deload",
 "sek": null,
@@ -2700,8 +2980,8 @@
 "kom": null
 },
 {
-"date": "2026-11-06",
-"week": "w45 2026",
+"date": "2026-12-04",
+"week": "w49 2026",
 "dag": "Fredag",
 "hoved": "Deload",
 "sek": null,
@@ -2710,8 +2990,8 @@
 "kom": null
 },
 {
-"date": "2026-11-07",
-"week": "w45 2026",
+"date": "2026-12-05",
+"week": "w49 2026",
 "dag": "Lørdag",
 "hoved": "Deload",
 "sek": null,
@@ -2720,8 +3000,78 @@
 "kom": null
 },
 {
-"date": "2026-11-08",
-"week": "w45 2026",
+"date": "2026-12-06",
+"week": "w49 2026",
+"dag": "Søndag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-12-07",
+"week": "w50 2026",
+"dag": "Mandag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-12-08",
+"week": "w50 2026",
+"dag": "Tirsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-12-09",
+"week": "w50 2026",
+"dag": "Onsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-12-10",
+"week": "w50 2026",
+"dag": "Torsdag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-12-11",
+"week": "w50 2026",
+"dag": "Fredag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-12-12",
+"week": "w50 2026",
+"dag": "Lørdag",
+"hoved": "Deload",
+"sek": null,
+"okt": null,
+"min": null,
+"kom": null
+},
+{
+"date": "2026-12-13",
+"week": "w50 2026",
 "dag": "Søndag",
 "hoved": "Deload",
 "sek": null,
