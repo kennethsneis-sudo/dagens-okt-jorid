@@ -2595,7 +2595,7 @@
 "dag": "Mandag",
 "hoved": "SS/THP",
 "sek": null,
-"okt": "SS 2×30min @ 230, p8min  + Styekeprogram etter sykkel",
+"okt": "SS 2×30min @ 230, p8min  + Styrkeprogram etter sykkel",
 "min": 120,
 "kom": null
 },
@@ -2645,7 +2645,7 @@
 "dag": "Lørdag",
 "hoved": "SS/THP",
 "sek": null,
-"okt": "Over-under 2×[12 min: 3 min @ 230w / 3 min @ 280],  p8 min  mellom   + Styekeprogram etter sykkel",
+"okt": "Over-under 2×[12 min: 3 min @ 230w / 3 min @ 280],  p8 min  mellom   + Styrkeprogram etter sykkel",
 "min": 150,
 "kom": null
 },
@@ -2675,7 +2675,7 @@
 "dag": "Tirsdag",
 "hoved": "SS/THP",
 "sek": "Kvalitet + styrke",
-"okt": "Alpe duZwift @250 + Styekeprogram etter sykkel",
+"okt": "Alpe duZwift @250 + Styrkeprogram etter sykkel",
 "min": 120,
 "kom": null
 },
@@ -2705,7 +2705,7 @@
 "dag": "Fredag",
 "hoved": "SS/THP",
 "sek": "Kvalitet + styrke",
-"okt": "Over-under 3×[12 min: 3 min @ 230w / 3 min @ 280],  p8 min  mellom   + Styekeprogram etter sykkel",
+"okt": "Over-under 3×[12 min: 3 min @ 230w / 3 min @ 280],  p8 min  mellom   + Styrkeprogram etter sykkel",
 "min": 150,
 "kom": null
 },
@@ -2745,7 +2745,7 @@
 "dag": "Tirsdag",
 "hoved": "SS/THP",
 "sek": null,
-"okt": "Endurance med  3×3×30s maks. 4 min mellom rep, 8 min mellom serier  + Styekeprogram etter sykkel",
+"okt": "Endurance med  3×3×30s maks. 4 min mellom rep, 8 min mellom serier + Styrkeprogram etter sykkel",
 "min": 120,
 "kom": null
 },
@@ -2775,7 +2775,7 @@
 "dag": "Fredag",
 "hoved": "SS/THP",
 "sek": null,
-"okt": "Over-under 4×[12 min: 3 min @ 230w / 3 min @ 280],  p8 min  mellom   + Styekeprogram etter sykkel",
+"okt": "Over-under 4×[12 min: 3 min @ 230w / 3 min @ 280],  p8 min  mellom + Styrkeprogram etter sykkel",
 "min": 150,
 "kom": null
 },
@@ -2815,7 +2815,7 @@
 "dag": "Tirsdag",
 "hoved": "SS/THP",
 "sek": null,
-"okt": "SS 3×30min @ 230, p8min  + Styekeprogram etter sykkel",
+"okt": "SS 3×30min @ 230, p8min + Styrkeprogram etter sykkel",
 "min": 150,
 "kom": null
 },
@@ -2845,7 +2845,7 @@
 "dag": "Fredag",
 "hoved": "SS/THP",
 "sek": null,
-"okt": "Over-under 3×[18 min: 3 min @ 230w / 3 min @ 280],  p8 min  mellom   + Styekeprogram etter sykkel",
+"okt": "Over-under 3×[18 min: 3 min @ 230w / 3 min @ 280],  p8 min  mellom + Styrkeprogram etter sykkel",
 "min": 150,
 "kom": null
 },
